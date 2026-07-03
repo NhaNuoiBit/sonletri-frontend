@@ -14,7 +14,7 @@ export default function SlideShell({
 
   return (
     <section
-      style={{ height: viewportHeight ? `${viewportHeight}px` : "100vh" }}
+      style={{ minHeight: viewportHeight ? `${viewportHeight}px` : "100vh" }}
       className={`relative w-full flex flex-col ${
         dark && !bgImage
           ? "bg-linear-to-br from-brand-900 via-brand-800 to-brand-700 text-white"
