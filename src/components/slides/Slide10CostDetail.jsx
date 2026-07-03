@@ -77,6 +77,8 @@ export default function Slide10CostDetail({ index, total }) {
           className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group min-h-40 lg:min-h-48"
         >
           <img
+            loading="lazy"
+            decoding="async"
             src={photo}
             alt="Vận hành sân bay"
             className="w-full h-full object-cover min-h-40 lg:min-h-48 group-hover:scale-105 transition-transform duration-700"

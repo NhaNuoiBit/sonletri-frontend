@@ -185,6 +185,8 @@ export default function Slide14Dashboard({ index, total }) {
             className="col-span-2 relative rounded-xl overflow-hidden shadow-md group"
           >
             <img
+            loading="lazy"
+            decoding="async"
               src={loungePhoto}
               alt="Business lounge"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

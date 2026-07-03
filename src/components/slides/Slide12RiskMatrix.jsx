@@ -88,6 +88,8 @@ export default function Slide12RiskMatrix({ index, total }) {
             className="rounded-2xl overflow-hidden shadow-md relative group h-40 sm:h-56 lg:h-64"
           >
             <img
+            loading="lazy"
+            decoding="async"
               src={photo}
               alt="Kiểm soát rủi ro"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

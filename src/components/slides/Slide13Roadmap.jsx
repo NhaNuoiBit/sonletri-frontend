@@ -105,7 +105,7 @@ export default function Slide13Roadmap({ index, total }) {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="hidden lg:block w-20 h-16 rounded-xl overflow-hidden shadow-sm shrink-0"
           >
-            <img src={photo} alt="Lộ trình" className="w-full h-full object-cover" />
+            <img src={photo} alt="Lộ trình" loading="lazy" decoding="async" className="w-full h-full object-cover" />
           </motion.div>
         </div>
 

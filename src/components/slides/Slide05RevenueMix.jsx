@@ -116,6 +116,8 @@ export default function Slide03RevenueMix({ index, total }) {
           className="relative rounded-3xl overflow-hidden shadow-xl h-56 sm:h-64 md:h-80 group"
         >
           <img
+            loading="lazy"
+            decoding="async"
             src={photo}
             alt="Phòng chờ CIP"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

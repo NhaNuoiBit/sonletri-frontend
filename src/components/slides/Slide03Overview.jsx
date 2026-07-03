@@ -77,6 +77,8 @@ export default function Slide02Overview({ index, total }) {
           className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group min-h-56"
         >
           <img
+            loading="lazy"
+            decoding="async"
             src={photo}
             alt="Nhà ga sân bay"
             className="w-full h-full object-cover min-h-56 lg:min-h-64 group-hover:scale-105 transition-transform duration-700"

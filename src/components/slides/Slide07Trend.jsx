@@ -107,6 +107,8 @@ export default function Slide04Trend({ index, total }) {
           className="relative rounded-3xl overflow-hidden shadow-xl group min-h-40 sm:min-h-56"
         >
           <img
+            loading="lazy"
+            decoding="async"
             src={photo}
             alt="Đường băng sân bay"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

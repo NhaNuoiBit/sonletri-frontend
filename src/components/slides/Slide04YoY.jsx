@@ -94,6 +94,8 @@ export default function Slide04YoY({ index, total }) {
           className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group min-h-40 sm:min-h-48"
         >
           <img
+            loading="lazy"
+            decoding="async"
             src={photo}
             alt="Máy bay"
             className="w-full h-full object-cover min-h-40 sm:min-h-48 group-hover:scale-105 transition-transform duration-700"

@@ -102,7 +102,7 @@ export default function Home() {
               whileHover={{ y: -6 }}
               className="md:col-span-3 relative rounded-2xl overflow-hidden shadow-lg h-64 md:h-72 group"
             >
-              <img src={hall} alt="Mặt bằng kinh doanh" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={hall} alt="Mặt bằng kinh doanh" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-linear-to-t from-brand-950/85 via-brand-950/10 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 text-white">
                 <p className="font-display font-bold text-xl">Mặt bằng kinh doanh</p>
@@ -117,7 +117,7 @@ export default function Home() {
               whileHover={{ y: -6 }}
               className="md:col-span-2 relative rounded-2xl overflow-hidden shadow-lg h-64 md:h-72 group"
             >
-              <img src={lounge} alt="Dịch vụ phòng CIP" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={lounge} alt="Dịch vụ phòng CIP" loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-linear-to-t from-brand-950/85 via-brand-950/10 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 text-white">
                 <p className="font-display font-bold text-xl">Dịch vụ phòng CIP</p>
@@ -191,6 +191,8 @@ export default function Home() {
                 <img
                   src={directorPhoto}
                   alt={director.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-brand-950/70 via-transparent to-transparent" />

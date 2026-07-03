@@ -112,6 +112,8 @@ export default function Slide08TrendDeepDive({ index, total }) {
           className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group min-h-40 lg:min-h-64"
         >
           <img
+            loading="lazy"
+            decoding="async"
             src={photo}
             alt="Phân tích số liệu"
             className="w-full h-full object-cover min-h-40 lg:min-h-64 group-hover:scale-105 transition-transform duration-700"
