@@ -5,7 +5,8 @@ import { meta, director } from "../data/report.js";
 import heroPhoto from "../assets/photos/airport-terminal-1.jpg";
 import lounge from "../assets/photos/business-lounge-1.jpg";
 import hall from "../assets/photos/airport-hall-1.jpg";
-import directorPhoto from "../assets/photos/le-tri-son.jpg";
+import directorPhoto from "../assets/photos/le-tri-son-portrait.jpg";
+import Tilt3DCard from "../components/ui/Tilt3DCard.jsx";
 
 export default function Home() {
   return (
@@ -156,19 +157,25 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            whileHover={{ scale: 1.02 }}
-            className="md:col-span-2 relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5]"
+            className="md:col-span-2"
           >
-            <img
-              src={directorPhoto}
-              alt={director.name}
-              className="w-full h-full object-cover object-[75%_60%]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 text-white">
-              <p className="text-xl font-bold">{director.name}</p>
-              <p className="text-sm text-brand-100">{director.title}</p>
-            </div>
+            <Tilt3DCard className="relative rounded-3xl shadow-2xl aspect-[4/5]">
+              <div className="w-full h-full rounded-3xl overflow-hidden">
+                <img
+                  src={directorPhoto}
+                  alt={director.name}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent to-transparent" />
+              </div>
+              <div
+                style={{ transform: "translateZ(40px)" }}
+                className="absolute bottom-5 left-5 right-5 text-white"
+              >
+                <p className="text-xl font-bold drop-shadow">{director.name}</p>
+                <p className="text-sm text-brand-100 drop-shadow">{director.title}</p>
+              </div>
+            </Tilt3DCard>
           </motion.div>
 
           <div className="md:col-span-3">
