@@ -6,7 +6,7 @@ import logo from "../../assets/photos/logo.jpg";
 
 export default function Slide01Cover({ index, total }) {
   return (
-    <SlideShell index={index} total={total} bgImage={cover} fullHeight className="justify-center items-center text-center">
+    <SlideShell index={index} total={total} bgImage={cover} className="justify-center items-center text-center">
       <div className="flex-1 flex flex-col justify-center items-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

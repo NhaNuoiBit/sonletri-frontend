@@ -8,11 +8,10 @@ export default function SlideShell({
   total,
   bgImage,
   bgOverlay = "brand",
-  fullHeight = false,
 }) {
   return (
     <section
-      className={`relative w-full ${fullHeight ? "min-h-screen" : ""} flex flex-col overflow-x-hidden ${
+      className={`relative w-full flex flex-col overflow-x-hidden ${
         dark && !bgImage
           ? "bg-linear-to-br from-brand-900 via-brand-800 to-brand-700 text-white"
           : "bg-white text-slate-900"
