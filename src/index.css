@@ -31,18 +31,13 @@ html, body, #root {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 0;
+  height: 0;
+  display: none;
 }
-::-webkit-scrollbar-track {
-  background: #eff6ff;
-}
-::-webkit-scrollbar-thumb {
-  background: #93c5fd;
-  border-radius: 999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #60a5fa;
+
+html, body {
+  scrollbar-width: none;
 }
 
 /* Subtle grain to break flat gradients — applied on dark hero/slide surfaces only */
