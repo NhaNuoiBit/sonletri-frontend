@@ -9,21 +9,21 @@ export default function StatCard({ label, value, unit, sub, delay = 0, dark = fa
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ y: -6, scale: 1.02 }}
-      className={`rounded-2xl p-6 shadow-lg border transition-shadow hover:shadow-xl ${
+      className={`rounded-2xl p-3.5 sm:p-6 shadow-lg border transition-shadow hover:shadow-xl ${
         dark
           ? "bg-white/10 border-white/20 backdrop-blur"
           : "bg-white border-brand-100"
       }`}
     >
-      <p className={`text-sm font-medium ${dark ? "text-brand-100" : "text-brand-600"}`}>
+      <p className={`text-xs sm:text-sm font-medium ${dark ? "text-brand-100" : "text-brand-600"}`}>
         {label}
       </p>
-      <p className={`mt-2 text-4xl font-bold ${dark ? "text-white" : "text-brand-900"}`}>
+      <p className={`mt-1 sm:mt-2 text-2xl sm:text-3xl md:text-4xl font-bold ${dark ? "text-white" : "text-brand-900"}`}>
         <AnimatedNumber value={value} decimals={decimals} />
-        <span className="text-lg font-semibold ml-1">{unit}</span>
+        <span className="text-sm sm:text-lg font-semibold ml-1">{unit}</span>
       </p>
       {sub && (
-        <p className={`mt-1 text-xs ${dark ? "text-white/70" : "text-slate-500"}`}>{sub}</p>
+        <p className={`mt-1 text-[11px] sm:text-xs ${dark ? "text-white/70" : "text-slate-500"}`}>{sub}</p>
       )}
     </motion.div>
   );

@@ -11,16 +11,16 @@ function HorizontalStepper({ active, onSelect }) {
   return (
     <div className="relative flex items-center justify-between max-w-3xl mx-auto">
       {/* Connecting line */}
-      <div className="absolute top-5 left-[30px] right-[30px] h-0.5 bg-brand-200 rounded-full" />
+      <div className="absolute top-4 sm:top-5 left-[20px] sm:left-[30px] right-[20px] sm:right-[30px] h-0.5 bg-brand-200 rounded-full" />
 
       {/* Progress fill */}
       <motion.div
-        className="absolute top-5 left-[30px] h-0.5 bg-brand-600 rounded-full"
+        className="absolute top-4 sm:top-5 left-[20px] sm:left-[30px] h-0.5 bg-brand-600 rounded-full"
         initial={{ width: "0%" }}
         whileInView={{ width: `${(active / (roadmap.length - 1)) * 100}%` }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        style={{ maxWidth: `calc(100% - 60px)` }}
+        style={{ maxWidth: `calc(100% - 40px)` }}
       />
 
       {roadmap.map((_, i) => {
@@ -30,7 +30,7 @@ function HorizontalStepper({ active, onSelect }) {
           <button
             key={i}
             onClick={() => onSelect(i)}
-            className="relative z-10 flex flex-col items-center gap-1.5 group focus:outline-none"
+            className="relative z-10 flex flex-col items-center gap-1 sm:gap-1.5 group focus:outline-none"
           >
             {/* Node circle */}
             <motion.span
@@ -39,7 +39,7 @@ function HorizontalStepper({ active, onSelect }) {
               viewport={{ once: true }}
               transition={{ delay: 0.2 + i * 0.1, type: "spring", stiffness: 400 }}
               className={`
-                w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold
+                w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold
                 transition-all duration-300 border-2
                 ${isActive
                   ? "bg-brand-600 text-white border-brand-600 shadow-lg shadow-brand-200 scale-110"
@@ -52,9 +52,9 @@ function HorizontalStepper({ active, onSelect }) {
               {i + 1}
             </motion.span>
 
-            {/* Label */}
+            {/* Label — hidden on very small screens */}
             <span
-              className={`text-[11px] font-semibold text-center leading-tight transition-colors duration-300 ${
+              className={`hidden sm:block text-[11px] font-semibold text-center leading-tight transition-colors duration-300 ${
                 isActive ? "text-brand-700" : isDone ? "text-brand-600" : "text-slate-400"
               }`}
             >
@@ -89,11 +89,11 @@ export default function Slide13Roadmap({ index, total }) {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-3xl font-bold text-brand-900"
+              className="text-xl sm:text-2xl md:text-3xl font-bold text-brand-900"
             >
               Lộ trình hành động đề xuất
             </motion.h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-xs sm:text-sm text-slate-500">
               Bấm vào từng nút để xem chi tiết —{" "}
               <span className="font-semibold text-brand-700">{item.title}</span>
             </p>
@@ -128,17 +128,17 @@ export default function Slide13Roadmap({ index, total }) {
               {/* Blue accent bar */}
               <div className="h-1 bg-brand-500 w-full" />
 
-              <div className="p-5">
+              <div className="p-4 sm:p-5">
                 {/* Title row */}
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-brand-50 text-brand-700">
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2 sm:px-2.5 py-1 rounded-full bg-brand-50 text-brand-700">
                     {item.quarter}
                   </span>
                   <ChevronRight size={14} className="text-slate-300" />
-                  <h3 className="font-bold text-brand-900">{item.title}</h3>
+                  <h3 className="font-bold text-brand-900 text-sm sm:text-base">{item.title}</h3>
                 </div>
 
-                <p className="mt-2.5 text-sm text-slate-600 leading-relaxed">{item.detail}</p>
+                <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">{item.detail}</p>
 
                 {/* Two-column: steps + outcome */}
                 <div className="mt-4 grid md:grid-cols-5 gap-4">

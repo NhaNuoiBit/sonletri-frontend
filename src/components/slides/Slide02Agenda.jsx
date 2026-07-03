@@ -20,7 +20,7 @@ export default function Slide02Agenda({ index, total, onJump }) {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-brand-900"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-900"
           >
             Nội dung báo cáo
           </motion.h2>
@@ -45,7 +45,7 @@ export default function Slide02Agenda({ index, total, onJump }) {
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
                 />
-                <span className="relative z-10 flex-shrink-0 w-10 h-10 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-base group-hover:bg-brand-700 transition-colors">
+                <span className="relative z-10 shrink-0 w-10 h-10 rounded-xl bg-brand-600 text-white font-bold flex items-center justify-center text-base group-hover:bg-brand-700 transition-colors">
                   {i + 1}
                 </span>
                 <div className="relative z-10 flex-1">
@@ -53,7 +53,7 @@ export default function Slide02Agenda({ index, total, onJump }) {
                   <p className="text-xs text-slate-500 mt-0.5">{item.desc}</p>
                 </div>
                 <ArrowUpRight
-                  className="relative z-10 text-brand-300 group-hover:text-brand-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all flex-shrink-0"
+                  className="relative z-10 text-brand-300 group-hover:text-brand-600 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all shrink-0"
                   size={18}
                 />
               </motion.button>

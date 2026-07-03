@@ -21,16 +21,16 @@ export default function Slide04YoY({ index, total }) {
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-brand-900"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-900"
       >
         So sánh với cùng kỳ 2025
       </motion.h2>
-      <p className="mt-2 text-slate-500">Đơn vị: tỷ đồng — chuyển góc nhìn để so sánh</p>
+      <p className="mt-2 text-slate-500 text-sm sm:text-base">Đơn vị: tỷ đồng — chuyển góc nhìn để so sánh</p>
 
-      <div className="mt-4 flex gap-2">
+      <div className="mt-4 flex flex-wrap gap-2">
         <button
           onClick={() => setMode("plan")}
-          className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all ${
+          className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium border transition-all ${
             mode === "plan" ? "bg-brand-600 text-white border-brand-600 shadow" : "text-slate-400 border-slate-200"
           }`}
         >
@@ -38,7 +38,7 @@ export default function Slide04YoY({ index, total }) {
         </button>
         <button
           onClick={() => setMode("actual")}
-          className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all ${
+          className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium border transition-all ${
             mode === "actual" ? "bg-brand-600 text-white border-brand-600 shadow" : "text-slate-400 border-slate-200"
           }`}
         >
@@ -52,7 +52,7 @@ export default function Slide04YoY({ index, total }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="lg:col-span-3"
+          className="lg:col-span-3 h-64 sm:h-72 lg:h-auto"
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -91,14 +91,14 @@ export default function Slide04YoY({ index, total }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group"
+          className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group min-h-40 sm:min-h-48"
         >
           <img
             src={photo}
             alt="Máy bay"
-            className="w-full h-full object-cover min-h-48 group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover min-h-40 sm:min-h-48 group-hover:scale-105 transition-transform duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-brand-900/10 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-brand-950/70 via-brand-900/10 to-transparent" />
           <div className="absolute bottom-5 left-5 right-5 text-white">
             <p className="text-xl font-bold">+16.6%</p>
             <p className="text-xs text-brand-100">Mục tiêu tăng trưởng doanh thu 2026</p>

@@ -11,7 +11,7 @@ export default function SlideShell({
 }) {
   return (
     <section
-      className={`relative w-full min-h-screen snap-start flex flex-col overflow-hidden ${
+      className={`relative w-full min-h-screen snap-start flex flex-col overflow-x-hidden ${
         dark && !bgImage
           ? "bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white"
           : "bg-white text-slate-900"
@@ -55,7 +55,7 @@ export default function SlideShell({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`relative z-10 flex-1 flex flex-col px-8 md:px-20 py-14 ${
+        className={`relative z-10 flex-1 flex flex-col px-5 sm:px-8 md:px-14 lg:px-20 py-10 md:py-14 ${
           dark || bgImage ? "text-white" : ""
         }`}
       >

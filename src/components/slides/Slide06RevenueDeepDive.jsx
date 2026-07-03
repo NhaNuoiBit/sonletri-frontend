@@ -16,16 +16,16 @@ function SegmentCard({ data, target, delay }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay, duration: 0.5 }}
-      className="rounded-2xl border border-brand-100 bg-white p-5 shadow-sm"
+      className="rounded-2xl border border-brand-100 bg-white p-4 sm:p-5 shadow-sm"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="font-semibold text-brand-900 text-lg">{data.name}</p>
-          <p className="text-2xl font-bold text-brand-700 mt-0.5">
-            {data.value} tỷ <span className="text-sm font-medium text-slate-400">({data.pct}%)</span>
+          <p className="font-semibold text-brand-900 text-base sm:text-lg">{data.name}</p>
+          <p className="text-xl sm:text-2xl font-bold text-brand-700 mt-0.5">
+            {data.value} tỷ <span className="text-xs sm:text-sm font-medium text-slate-400">({data.pct}%)</span>
           </p>
         </div>
-        <div className="w-28 h-14 flex-shrink-0">
+        <div className="w-24 sm:w-28 h-12 sm:h-14 shrink-0">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData}>
               <YAxis hide domain={["dataMin - 1", "dataMax + 1"]} />
@@ -44,7 +44,7 @@ function SegmentCard({ data, target, delay }) {
 
       <div className="mt-3 h-3 w-full bg-brand-50 rounded-full overflow-hidden relative">
         <motion.div
-          className="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full"
+          className="h-full bg-linear-to-r from-brand-500 to-brand-700 rounded-full"
           initial={{ width: 0 }}
           whileInView={{ width: `${data.pct}%` }}
           viewport={{ once: true }}
@@ -85,15 +85,15 @@ export default function Slide06RevenueDeepDive({ index, total }) {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-brand-900"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-900"
         >
           Phân tích chuyên sâu 2 mảng chủ lực
         </motion.h2>
-        <p className="mt-2 text-slate-600">
+        <p className="mt-2 text-slate-600 text-sm sm:text-base">
           Vạch cam = tiến độ tuyến tính kỳ vọng theo thời gian (41.7%) &middot; Đường nhỏ = xu hướng theo tháng
         </p>
 
-        <div className="mt-8 grid md:grid-cols-2 gap-5">
+        <div className="mt-6 sm:mt-8 grid md:grid-cols-2 gap-4 sm:gap-5">
           <SegmentCard data={cip} target={cip.planPct} delay={0} />
           <SegmentCard data={mb} target={mb.planPct} delay={0.15} />
         </div>

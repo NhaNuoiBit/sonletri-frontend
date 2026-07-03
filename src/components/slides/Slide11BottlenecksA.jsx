@@ -15,13 +15,14 @@ export default function Slide11BottlenecksA({ index, total }) {
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold flex items-center gap-3"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold flex items-center gap-2 sm:gap-3"
       >
         <motion.span
           animate={{ rotate: [0, -8, 8, -8, 0] }}
           transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 2 }}
+          className="shrink-0"
         >
-          <AlertTriangle className="text-amber-300" size={36} />
+          <AlertTriangle className="text-amber-300 w-7 h-7 sm:w-9 sm:h-9" />
         </motion.span>
         Điểm nghẽn cần lưu ý (1/2)
       </motion.h2>

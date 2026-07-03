@@ -20,13 +20,13 @@ export default function Slide03RevenueMix({ index, total }) {
       </motion.h2>
       <p className="mt-2 text-slate-500">Tỷ trọng doanh thu 5 tháng đầu năm 2026 — di chuột vào biểu đồ để xem chi tiết</p>
 
-      <div className="mt-8 grid md:grid-cols-3 gap-8 items-center flex-1">
+      <div className="mt-6 md:mt-8 grid md:grid-cols-3 gap-6 md:gap-8 items-center flex-1">
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="h-80 relative"
+          className="h-64 sm:h-72 md:h-80 relative"
         >
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -95,7 +95,7 @@ export default function Slide03RevenueMix({ index, total }) {
             >
               <div className="flex items-center gap-3">
                 <span
-                  className="w-3 h-3 rounded-full flex-shrink-0"
+                  className="w-3 h-3 rounded-full shrink-0"
                   style={{ backgroundColor: seg.color }}
                 />
                 <span className="text-slate-700 font-medium text-sm">{seg.name}</span>
@@ -113,14 +113,14 @@ export default function Slide03RevenueMix({ index, total }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative rounded-3xl overflow-hidden shadow-xl h-80 group"
+          className="relative rounded-3xl overflow-hidden shadow-xl h-56 sm:h-64 md:h-80 group"
         >
           <img
             src={photo}
             alt="Phòng chờ CIP"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-950/85 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-brand-950/85 to-transparent" />
           <div className="absolute bottom-5 left-5 right-5 text-white">
             <p className="text-lg font-bold">CIP & Mặt bằng</p>
             <p className="text-sm text-brand-100">chiếm 97% tổng doanh thu</p>

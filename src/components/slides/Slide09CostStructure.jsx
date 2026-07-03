@@ -24,22 +24,22 @@ export default function Slide05CostStructure({ index, total }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mt-8 h-96 rounded-2xl bg-white/70 backdrop-blur p-4 shadow-lg border border-white"
+        className="mt-6 md:mt-8 h-72 sm:h-80 md:h-96 rounded-2xl bg-white/70 backdrop-blur p-2 sm:p-4 shadow-lg border border-white"
       >
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={costStructure}
             layout="vertical"
-            margin={{ top: 10, right: 50, left: 10, bottom: 0 }}
+            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#dbeafe" horizontal={false} />
-            <XAxis type="number" stroke="#64748b" />
+            <XAxis type="number" stroke="#64748b" tick={{ fontSize: 11 }} />
             <YAxis
               type="category"
               dataKey="name"
-              width={220}
+              width={140}
               stroke="#64748b"
-              tick={{ fontSize: 12 }}
+              tick={{ fontSize: 10 }}
             />
             <Tooltip formatter={(v, n, p) => [`${v} tỷ đồng (${p.payload.pct}%)`, "Giá trị"]} />
             <Bar dataKey="value" radius={[0, 8, 8, 0]} animationDuration={1200} animationEasing="ease-out">

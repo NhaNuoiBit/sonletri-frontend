@@ -21,19 +21,19 @@ export default function Slide10CostDetail({ index, total }) {
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-brand-900"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-900"
       >
         Diễn biến 3 khoản chi phí lớn nhất
       </motion.h2>
-      <p className="mt-2 text-slate-500">Thuê mặt bằng, lương, thực phẩm theo tháng (tỷ đồng)</p>
+      <p className="mt-2 text-slate-500 text-sm sm:text-base">Thuê mặt bằng, lương, thực phẩm theo tháng (tỷ đồng)</p>
 
-      <div className="mt-4 grid lg:grid-cols-5 gap-6 flex-1 min-h-0">
+      <div className="mt-4 grid lg:grid-cols-5 gap-4 lg:gap-6 flex-1 min-h-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-3"
+          className="lg:col-span-3 h-64 sm:h-72 lg:h-auto"
         >
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={costDetail} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
@@ -74,16 +74,16 @@ export default function Slide10CostDetail({ index, total }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group"
+          className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group min-h-40 lg:min-h-48"
         >
           <img
             src={photo}
             alt="Vận hành sân bay"
-            className="w-full h-full object-cover min-h-48 group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover min-h-40 lg:min-h-48 group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-linear-to-t from-brand-950/70 via-brand-900/10 to-transparent" />
-          <div className="absolute bottom-5 left-5 right-5 text-white">
-            <p className="text-xl font-bold">78.4 tỷ</p>
+          <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 text-white">
+            <p className="text-lg sm:text-xl font-bold">78.4 tỷ</p>
             <p className="text-xs text-brand-100">Tổng chi phí 5T/2026 · Đạt 40.0% KH năm</p>
           </div>
         </motion.div>
@@ -94,7 +94,7 @@ export default function Slide10CostDetail({ index, total }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.4 }}
-        className="mt-4 text-sm text-brand-700 bg-brand-50 rounded-xl p-4"
+        className="mt-4 text-xs sm:text-sm text-brand-700 bg-brand-50 rounded-xl p-3 sm:p-4"
       >
         Chi phí thuê mặt bằng gần như đi ngang (~9.3-9.4 tỷ/tháng) do là chi phí cố định theo hợp
         đồng. Chi phí lương tăng đột biến trong tháng 4 (4.12 tỷ) — trùng thời điểm lợi nhuận sụt

@@ -14,15 +14,15 @@ export default function Slide01Cover({ index, total }) {
           transition={{ duration: 0.7 }}
           className="mb-6 flex items-center gap-4 px-5 py-2 rounded-full bg-white/10 border border-white/20"
         >
-          <img src={logo} alt="AHTS logo" className="h-full w-16 border border-white/20 rounded-full" />
-          <span className="text-brand-100 text-sm tracking-widest uppercase">{meta.companyShort} &middot; Báo cáo tài chính</span>
+          <img src={logo} alt="AHTS logo" className="h-8 sm:h-10 w-auto border border-white/20 rounded-full shrink-0" />
+          <span className="text-brand-100 text-[11px] sm:text-sm tracking-widest uppercase">{meta.companyShort} &middot; Báo cáo tài chính</span>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="text-4xl md:text-6xl font-bold leading-tight max-w-4xl"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight max-w-4xl px-2"
         >
           Báo cáo kết quả kinh doanh
           <br />
@@ -40,7 +40,7 @@ export default function Slide01Cover({ index, total }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-6 text-lg md:text-xl text-brand-100 max-w-2xl"
+          className="mt-6 text-base sm:text-lg md:text-xl text-brand-100 max-w-2xl px-4"
         >
           {meta.company}
         </motion.p>

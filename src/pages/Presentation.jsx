@@ -98,22 +98,24 @@ export default function Presentation() {
     <div className="relative w-full h-screen bg-white">
       <Link
         to="/"
-        className="fixed top-5 left-5 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur border border-brand-100 shadow-md text-brand-700 font-medium text-sm hover:bg-brand-50 transition"
+        className="fixed top-3 left-3 sm:top-5 sm:left-5 z-50 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/90 backdrop-blur border border-brand-100 shadow-md text-brand-700 font-medium text-xs sm:text-sm hover:bg-brand-50 transition"
       >
-        <ArrowLeft size={16} />
-        Trang chủ
+        <ArrowLeft size={14} className="sm:hidden" />
+        <ArrowLeft size={16} className="hidden sm:block" />
+        <span className="hidden sm:inline">Trang chủ</span>
       </Link>
 
-      <div className="fixed top-5 right-5 z-50 flex items-center gap-2">
-        <div className="px-3 py-1.5 rounded-full bg-white/90 backdrop-blur border border-brand-100 shadow-md text-brand-700 text-xs font-semibold">
+      <div className="fixed top-3 right-3 sm:top-5 sm:right-5 z-50 flex items-center gap-1.5 sm:gap-2">
+        <div className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/90 backdrop-blur border border-brand-100 shadow-md text-brand-700 text-[11px] sm:text-xs font-semibold">
           {active + 1} / {slides.length}
         </div>
         <button
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Danh sách slide"
-          className="w-11 h-11 rounded-full bg-white/90 backdrop-blur border border-brand-100 shadow-md flex items-center justify-center text-brand-700 hover:bg-brand-50 transition"
+          className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/90 backdrop-blur border border-brand-100 shadow-md flex items-center justify-center text-brand-700 hover:bg-brand-50 transition"
         >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          {menuOpen ? <X size={18} className="sm:hidden" /> : <Menu size={18} className="sm:hidden" />}
+          {menuOpen ? <X size={20} className="hidden sm:block" /> : <Menu size={20} className="hidden sm:block" />}
         </button>
       </div>
 
@@ -132,7 +134,7 @@ export default function Presentation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 34 }}
-              className="fixed top-0 right-0 bottom-0 z-40 w-80 max-w-[85vw] bg-white shadow-2xl overflow-y-auto pt-20 pb-6"
+              className="fixed top-0 right-0 bottom-0 z-40 w-72 sm:w-80 max-w-[85vw] bg-white shadow-2xl overflow-y-auto pt-16 sm:pt-20 pb-6"
             >
               <p className="px-5 pb-3 text-xs font-semibold text-slate-400 uppercase tracking-wide">
                 Danh sách slide
@@ -162,22 +164,24 @@ export default function Presentation() {
         )}
       </AnimatePresence>
 
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-2">
+      <div className="fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-50 flex flex-col gap-1.5 sm:gap-2">
         <button
           onClick={() => scrollToIndex(Math.max(0, active - 1))}
-          className="w-10 h-10 rounded-full bg-white shadow-md border border-brand-100 flex items-center justify-center text-brand-700 hover:bg-brand-50 disabled:opacity-30"
+          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-md border border-brand-100 flex items-center justify-center text-brand-700 hover:bg-brand-50 disabled:opacity-30"
           disabled={active === 0}
           aria-label="Slide trước"
         >
-          <ChevronUp size={18} />
+          <ChevronUp size={16} className="sm:hidden" />
+          <ChevronUp size={18} className="hidden sm:block" />
         </button>
         <button
           onClick={() => scrollToIndex(Math.min(slides.length - 1, active + 1))}
-          className="w-10 h-10 rounded-full bg-white shadow-md border border-brand-100 flex items-center justify-center text-brand-700 hover:bg-brand-50 disabled:opacity-30"
+          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-md border border-brand-100 flex items-center justify-center text-brand-700 hover:bg-brand-50 disabled:opacity-30"
           disabled={active === slides.length - 1}
           aria-label="Slide sau"
         >
-          <ChevronDown size={18} />
+          <ChevronDown size={16} className="sm:hidden" />
+          <ChevronDown size={18} className="hidden sm:block" />
         </button>
       </div>
 

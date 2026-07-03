@@ -29,22 +29,22 @@ export default function Slide08TrendDeepDive({ index, total }) {
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold"
       >
         Truy nguyên nhân điểm trũng tháng 4
       </motion.h2>
-      <p className="mt-2 text-brand-200">
+      <p className="mt-2 text-brand-200 text-sm sm:text-base">
         Đối chiếu lợi nhuận trước thuế với chi phí lương — tỷ đồng
       </p>
 
-      <div className="mt-4 grid lg:grid-cols-5 gap-6 flex-1 min-h-0">
+      <div className="mt-4 grid lg:grid-cols-5 gap-4 lg:gap-6 flex-1 min-h-0">
         <div className="lg:col-span-3 flex flex-col">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex-1 min-h-0"
+            className="h-56 sm:h-64 lg:h-auto lg:flex-1 lg:min-h-0"
           >
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={merged} margin={{ top: 20, right: 20, left: 0, bottom: 0 }}>
@@ -80,7 +80,7 @@ export default function Slide08TrendDeepDive({ index, total }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="mt-4 grid grid-cols-3 gap-3 shrink-0"
+            className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 shrink-0"
           >
             {[
               { label: "Chi phí lương T4", value: "4.12 tỷ", desc: "Cao nhất 5 tháng, TB ~3.15 tỷ" },
@@ -94,10 +94,10 @@ export default function Slide08TrendDeepDive({ index, total }) {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
-                className="rounded-xl bg-white/10 border border-white/20 backdrop-blur p-4"
+                className="rounded-xl bg-white/10 border border-white/20 backdrop-blur p-3 sm:p-4"
               >
                 <p className="text-xs text-brand-200">{s.label}</p>
-                <p className="text-2xl font-bold text-orange-300">{s.value}</p>
+                <p className="text-xl sm:text-2xl font-bold text-orange-300">{s.value}</p>
                 <p className="text-xs text-brand-100 mt-1">{s.desc}</p>
               </motion.div>
             ))}
@@ -109,16 +109,16 @@ export default function Slide08TrendDeepDive({ index, total }) {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group"
+          className="lg:col-span-2 relative rounded-3xl overflow-hidden shadow-xl group min-h-40 lg:min-h-64"
         >
           <img
             src={photo}
             alt="Phân tích số liệu"
-            className="w-full h-full object-cover min-h-64 group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover min-h-40 lg:min-h-64 group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-linear-to-t from-brand-950/70 via-brand-900/20 to-transparent" />
-          <div className="absolute bottom-5 left-5 right-5 text-white">
-            <p className="text-lg font-bold">Điểm trũng T4</p>
+          <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 text-white">
+            <p className="text-base sm:text-lg font-bold">Điểm trũng T4</p>
             <p className="text-xs text-brand-100 mt-1">
               Doanh thu thấp nhất + Chi phí cao nhất → LNTT -20.1%
             </p>
@@ -131,7 +131,7 @@ export default function Slide08TrendDeepDive({ index, total }) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.5 }}
-        className="mt-4 text-sm text-brand-100 bg-white/10 border border-white/20 backdrop-blur rounded-xl p-4"
+        className="mt-4 text-xs sm:text-sm text-brand-100 bg-white/10 border border-white/20 backdrop-blur rounded-xl p-3 sm:p-4"
       >
         Mức tăng chi phí lương tháng 4 (+1.06 tỷ so với tháng 3) gần khớp với mức sụt giảm lợi
         nhuận trước thuế cùng kỳ (-3.5 tỷ, trong đó doanh thu giảm góp thêm ~2.7 tỷ) — cho thấy

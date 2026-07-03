@@ -24,7 +24,7 @@ export default function Slide08ThankYou({ index, total }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-5xl md:text-6xl font-bold"
+          className="text-3xl sm:text-5xl md:text-6xl font-bold px-4"
         >
           Trân trọng cảm ơn
         </motion.h2>
@@ -34,7 +34,7 @@ export default function Slide08ThankYou({ index, total }) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-6 text-xl text-brand-100"
+          className="mt-6 text-base sm:text-xl text-brand-100 px-4 text-center"
         >
           {meta.department}
         </motion.p>
