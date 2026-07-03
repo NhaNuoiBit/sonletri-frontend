@@ -90,14 +90,6 @@ export const bottlenecks = [
   },
 ];
 
-export const actions = [
-  "Rà soát nguyên nhân sụt giảm lợi nhuận tháng 4 để có biện pháp ngăn ngừa lặp lại.",
-  "Đánh giá lại chiến lược đầu tư tài chính để cải thiện doanh thu từ lãi tiền gửi và lãi cho vay.",
-  "Xây dựng thêm nguồn doanh thu mới từ nhà hàng và dịch vụ khác để giảm rủi ro tập trung.",
-  "Đẩy nhanh tiến độ giải ngân ngân sách đào tạo tuyển dụng theo kế hoạch.",
-  "Theo dõi sát chi phí đảm bảo hoạt động văn phòng đang có xu hướng tăng nhanh.",
-];
-
 export const agenda = [
   { title: "Tổng quan kết quả kinh doanh", desc: "Doanh thu, chi phí, lợi nhuận 5 tháng" },
   { title: "So sánh cùng kỳ 2025", desc: "Tăng trưởng và tiến độ kế hoạch" },
