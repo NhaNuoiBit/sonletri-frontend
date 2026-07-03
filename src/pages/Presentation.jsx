@@ -68,24 +68,33 @@ const slideTitles = [
 
 export default function Presentation() {
   const containerRef = useRef(null);
+  const activeRef = useRef(0);
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
-    const sections = container.querySelectorAll("section");
+
     const onScroll = () => {
+      const wrappers = container.querySelectorAll(":scope > [data-slide-index]");
       const center = container.scrollTop + container.clientHeight / 2;
-      for (let i = 0; i < sections.length; i++) {
-        const top = sections[i].offsetTop;
-        const bottom = top + sections[i].offsetHeight;
-        if (center >= top && center < bottom) {
-          setActive(i);
-          break;
+      let closest = 0;
+      let closestDist = Infinity;
+      wrappers.forEach((wrapper) => {
+        const i = Number(wrapper.dataset.slideIndex);
+        const top = wrapper.offsetTop;
+        const bottom = top + wrapper.offsetHeight;
+        const dist = center >= top && center < bottom ? 0 : Math.min(Math.abs(center - top), Math.abs(center - bottom));
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = i;
         }
-      }
+      });
+      activeRef.current = closest;
+      setActive(closest);
     };
+
     container.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => container.removeEventListener("scroll", onScroll);
@@ -93,8 +102,9 @@ export default function Presentation() {
 
   const scrollToIndex = useCallback((i) => {
     const container = containerRef.current;
-    const sections = container?.querySelectorAll("section");
-    sections?.[i]?.scrollIntoView({ behavior: "smooth" });
+    const clamped = Math.max(0, Math.min(slides.length - 1, i));
+    const wrapper = container?.querySelector(`:scope > [data-slide-index="${clamped}"]`);
+    wrapper?.scrollIntoView({ behavior: "smooth", block: "start" });
     setMenuOpen(false);
   }, []);
 
@@ -102,6 +112,25 @@ export default function Presentation() {
     (agendaIdx) => scrollToIndex(agendaTargets[agendaIdx]),
     [scrollToIndex]
   );
+
+  // Keyboard navigation: ArrowUp/ArrowDown (and PageUp/PageDown) move one slide
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (menuOpen) return;
+      const tag = document.activeElement?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+
+      if (e.key === "ArrowDown" || e.key === "PageDown") {
+        e.preventDefault();
+        scrollToIndex(activeRef.current + 1);
+      } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+        e.preventDefault();
+        scrollToIndex(activeRef.current - 1);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen, scrollToIndex]);
 
   return (
     <div className="relative w-full h-screen bg-white">
@@ -175,7 +204,7 @@ export default function Presentation() {
 
       <div className="fixed bottom-3 right-3 sm:bottom-5 sm:right-5 z-50 flex flex-col gap-1.5 sm:gap-2">
         <button
-          onClick={() => scrollToIndex(Math.max(0, active - 1))}
+          onClick={() => scrollToIndex(active - 1)}
           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-md border border-brand-100 flex items-center justify-center text-brand-700 hover:bg-brand-50 disabled:opacity-30"
           disabled={active === 0}
           aria-label="Slide trước"
@@ -184,7 +213,7 @@ export default function Presentation() {
           <ChevronUp size={18} className="hidden sm:block" />
         </button>
         <button
-          onClick={() => scrollToIndex(Math.min(slides.length - 1, active + 1))}
+          onClick={() => scrollToIndex(active + 1)}
           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-md border border-brand-100 flex items-center justify-center text-brand-700 hover:bg-brand-50 disabled:opacity-30"
           disabled={active === slides.length - 1}
           aria-label="Slide sau"
@@ -199,13 +228,15 @@ export default function Presentation() {
         className="w-full h-screen overflow-y-auto scroll-smooth"
       >
         {slides.map((Slide, i) => (
-          <Suspense key={i} fallback={<SlideFallback />}>
-            <Slide
-              index={i + 1}
-              total={slides.length}
-              onJump={Slide === Slide02Agenda ? handleJump : undefined}
-            />
-          </Suspense>
+          <div key={i} data-slide-index={i}>
+            <Suspense fallback={<SlideFallback />}>
+              <Slide
+                index={i + 1}
+                total={slides.length}
+                onJump={Slide === Slide02Agenda ? handleJump : undefined}
+              />
+            </Suspense>
+          </div>
         ))}
       </div>
     </div>
