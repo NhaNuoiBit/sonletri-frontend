@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: "Be Vietnam Pro", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Outfit", "Be Vietnam Pro", system-ui, sans-serif;
   --color-brand-50: #eff6ff;
   --color-brand-100: #dbeafe;
   --color-brand-200: #bfdbfe;
@@ -42,4 +43,19 @@ html, body, #root {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #60a5fa;
+}
+
+/* Subtle grain to break flat gradients — applied on dark hero/slide surfaces only */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--color-brand-200);
+  color: var(--color-brand-950);
 }

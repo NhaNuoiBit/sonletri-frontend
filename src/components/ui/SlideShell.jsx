@@ -13,7 +13,7 @@ export default function SlideShell({
     <section
       className={`relative w-full min-h-screen snap-start flex flex-col overflow-x-hidden ${
         dark && !bgImage
-          ? "bg-gradient-to-br from-brand-900 via-brand-800 to-brand-700 text-white"
+          ? "bg-linear-to-br from-brand-900 via-brand-800 to-brand-700 text-white"
           : "bg-white text-slate-900"
       } ${className}`}
     >
@@ -31,12 +31,14 @@ export default function SlideShell({
           <div
             className={`absolute inset-0 ${
               bgOverlay === "brand"
-                ? "bg-gradient-to-br from-brand-950/90 via-brand-900/85 to-brand-700/70"
+                ? "bg-linear-to-br from-brand-950/90 via-brand-900/85 to-brand-700/70"
                 : "bg-white/85"
             }`}
           />
         </>
       )}
+
+      {(dark || bgImage) && <div className="grain-overlay" />}
 
       {/* decor blobs */}
       <div
