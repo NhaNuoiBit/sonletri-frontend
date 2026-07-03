@@ -36,24 +36,24 @@ function GaugeCard({ kpi, delay }) {
       viewport={{ once: true }}
       transition={{ delay, duration: 0.4 }}
       whileHover={{ y: -3 }}
-      className="rounded-xl border border-brand-100 bg-white p-2 sm:p-3 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center"
+      className="rounded-xl border border-brand-100 bg-white p-2.5 sm:p-3.5 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center"
     >
-      <div className="w-full h-16 sm:h-20 md:h-24 relative">
+      <div className="w-full h-20 sm:h-24 md:h-28 relative">
         <ResponsiveContainer width="100%" height="100%">
-          <RadialBarChart innerRadius="75%" outerRadius="100%" data={data} startAngle={90} endAngle={-270}>
+          <RadialBarChart innerRadius="80%" outerRadius="100%" data={data} startAngle={90} endAngle={-270}>
             <PolarAngleAxis type="number" domain={[0, 100]} angleAxisId={0} tick={false} />
             <RadialBar background={{ fill: "#eff6ff" }} dataKey="value" cornerRadius={20} animationDuration={1000} />
           </RadialBarChart>
         </ResponsiveContainer>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <p className="text-sm sm:text-lg md:text-xl font-bold text-brand-900">{kpi.value}%</p>
-          <p className={`hidden sm:flex text-[9px] md:text-[10px] mt-0.5 items-center gap-0.5 ${above ? "text-emerald-600" : "text-amber-600"}`}>
-            {above ? <TrendingUp size={10} /> : <Minus size={10} />}
-            {above ? "+" : "-"}{gap}% vs KH
-          </p>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <p className="text-base sm:text-xl md:text-2xl font-bold text-brand-900">{kpi.value}%</p>
         </div>
       </div>
-      <p className="mt-1 text-[10px] sm:text-xs font-semibold text-brand-900 text-center leading-tight">{kpi.label}</p>
+      <p className="mt-1.5 text-[10px] sm:text-xs font-semibold text-brand-900 text-center leading-tight">{kpi.label}</p>
+      <p className={`mt-1 flex items-center gap-0.5 text-[9px] sm:text-[10px] font-medium ${above ? "text-emerald-600" : "text-amber-600"}`}>
+        {above ? <TrendingUp size={10} /> : <Minus size={10} />}
+        {above ? "+" : "-"}{gap}% so KH
+      </p>
     </motion.div>
   );
 }
